@@ -25,7 +25,7 @@ public class AuthorService {
 	public ResponseTemplateVo getDocumentByAuthor(Long authorId) {
 		ResponseTemplateVo vo = new ResponseTemplateVo();
 		Author author = authorRepository.findByAuthorId(authorId);
-		Document document = restTemplate.getForObject("http://localhost:9001/documents/"+author.getAuthorId(), Document.class);
+		Document document = restTemplate.getForObject("http://DOCUMENT-SERVICE/documents/"+author.getAuthorId(), Document.class);
 		vo.setAuthor(author);
 		vo.setDocument(document);
 		return vo;
